@@ -13,7 +13,7 @@
 
 #include "Menu.h"
 
-int  Menu::ShowMenu()  {
+int  Menu::ShowMenu()  const{
     int action;
     cout << "//==============================================================[ Menu ]==============================================================\\\\" << endl;
     cout << "|| 1. Display the list on the screen.\n"

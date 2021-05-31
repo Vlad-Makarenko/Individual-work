@@ -14,15 +14,9 @@
 #include "Container.h"
 
 
-List::List() : index(0) {
-    while (!backpacks.empty()) {
-        backpacks.pop_back();
-    }
-    backpacks.clear();
-    backpacks.shrink_to_fit();
-}
+List::List() = default;
 
-List::List(List& copy) :index(copy.index), backpacks(copy.backpacks) {}
+List::List(List& copy) : backpacks(copy.backpacks) {}
 
 List::~List() {
     while (!backpacks.empty()) {
@@ -39,20 +33,15 @@ void List::DeleteAll() {
     }
     backpacks.clear();
     backpacks.shrink_to_fit();
-    index = 0;
 }
 
 
 void List::addBackpack(Backpack* backpack) {
-    index += 1;
-    if (index >= 255) {
-        return;
-    }
     this->backpacks.push_back(backpack->clone());
 }
 
 
-vector<Backpack*> List::getBackpack() {
+vector<Backpack*> List::getBackpack() const {
     return this->backpacks;
 }
 
@@ -62,18 +51,17 @@ void List::setBackpacks(const vector<Backpack*> NewBackpacks) {
     }
     backpacks.clear();
     backpacks.shrink_to_fit();
-    index = NewBackpacks.size();
     this->backpacks = NewBackpacks;
 }
 
-Backpack* List::getBackpackByIndex(int index) {
+Backpack* List::getBackpackByIndex(const int index) const {
     if (index < 0 || index > backpacks.size()) {
         throw std::out_of_range("Out of range exception");
     }
     return this->backpacks[index]->clone();
 }
 
-void List::ShowAll() {
+void List::ShowAll() const {
     for (int i = 0; i < backpacks.size(); ++i) {
         backpacks[i]->Print();
         cout << endl;
@@ -84,12 +72,11 @@ void List::DeleteElement(int index) {
     if (index < 0 || index > backpacks.size()) {
         throw std::out_of_range("Out of range exception");
     }
-    vector<Backpack*>::iterator pos = backpacks.begin() + index;
+    auto pos = backpacks.begin() + index;
     backpacks.erase(pos);
-    this->index--;
 }
 
-void List::addBackpackByIndex(Backpack* backpack, int index) {
+void List::addBackpackByIndex(Backpack* backpack, const int index) {
     if (index < 0 || index > backpacks.size()) {
         throw std::out_of_range("Out of range exception");
     }

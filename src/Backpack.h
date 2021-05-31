@@ -123,7 +123,7 @@ public:
 /**
  * Віртуальний деструктор
  */
-    virtual ~Backpack() {}
+    virtual ~Backpack() = default;
 /**
  * Віртуальний метод виявлення типу об'єкта
  */

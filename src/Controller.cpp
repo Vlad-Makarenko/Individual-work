@@ -13,9 +13,9 @@
 
 #include "Controller.h"
 
-Controller::Controller() {}
+Controller::Controller() = default;
 
-Controller::~Controller() {}
+Controller::~Controller() = default;
 
 List* Controller::getList() {
     return &list;
@@ -174,7 +174,7 @@ bool predGermanUrbanVelour(Backpack* a)
 }
 
 
-vector<LeatherBackpack*> Controller::FindGermanVelourBackpack() {
+vector<LeatherBackpack*> Controller::FindGermanVelourBackpack() const{
     vector<LeatherBackpack*> res;
     vector<Backpack*> tmp = this->list.getBackpack();
     bool flag = true;
@@ -200,14 +200,13 @@ vector<LeatherBackpack*> Controller::FindGermanVelourBackpack() {
     tmp.shrink_to_fit();
     return res;
 }
-//
-//
-//
+
+
 bool predSuedeNoLining(Backpack* a)
 {
     if (a->GetType() == 'L') {
         auto* Le = (LeatherBackpack*)a->clone();
-        if (Le->getLeather() == SUEDE && Le->getlining() == false) {
+        if (Le->getLeather() == SUEDE && !Le->getlining()) {
             delete Le;
             return true;
         }
@@ -221,7 +220,7 @@ bool predSuedeNoLining(Backpack* a)
     }
 }
 
-vector<LeatherBackpack*>  Controller::FindSuedeNoLiningBackpack() {
+vector<LeatherBackpack*>  Controller::FindSuedeNoLiningBackpack() const{
     vector<LeatherBackpack*> res;
     vector<Backpack*> temp = this->list.getBackpack();
     bool flag = true;
@@ -551,7 +550,7 @@ bool predBlueMax(Backpack* a)
     }
 }
 
-vector<Backpack*> Controller::FindBlueMaxVolumeBackpack() {
+vector<Backpack*> Controller::FindBlueMaxVolumeBackpack() const {
     vector<Backpack*> res;
     auto temp = this->list.getBackpack();
     std::sort(temp.begin(), temp.end(), functorSortByVolume);

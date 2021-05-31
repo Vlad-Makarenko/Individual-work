@@ -22,7 +22,6 @@
  */
 class List {
     vector<Backpack*> backpacks;
-    int index = 0;
 public:
     /**
      * Конструктор за замовчуванням
@@ -58,14 +57,14 @@ public:
      * @param backpack - об'єкт, що буде додано
      * @param index - позиція в яку буде додано об'єкт
      */
-    void addBackpackByIndex(Backpack* backpack, int index);
+    void addBackpackByIndex(Backpack* backpack, const int index);
 
     /**
      * "Гетер"
      *
      * Повертає вектор об'єктів
      */
-    vector<Backpack*> getBackpack();
+    vector<Backpack*> getBackpack() const;
 
     /**
      * "Гетер"
@@ -73,14 +72,14 @@ public:
      * Повертає об'єкт із вектора за індексом
      * @param index - позиція, елемент якої будет отримано
      */
-    Backpack* getBackpackByIndex(int index);
+    Backpack* getBackpackByIndex(const int index) const;
 
     /**
      * Метод виводу на екран
      *
      * Метод виводить колекцію на екран
      */
-    void ShowAll();
+    void ShowAll() const;
 
     /**
     * Метод видалення елементу по індексу
@@ -88,7 +87,7 @@ public:
     * Метод видаляє елемент в індексі вектора
     * @param index - позиція з якої будевидалено об'єкт
     */
-    void DeleteElement(int index);
+    void DeleteElement(const int index);
 
     /**
     * Метод очищення вектора

@@ -68,7 +68,7 @@ public:
      * Метод знаходить серед колекції німецький міський рюкзак
      * @return контейнер зі знайденими об'єктами
      */
-    vector<LeatherBackpack*> FindGermanVelourBackpack();
+    vector<LeatherBackpack*> FindGermanVelourBackpack() const;
 
     /**
      * Метод пошуку об'єкту
@@ -76,7 +76,7 @@ public:
      * Метод знаходить серед колекції замшевий рюкзак без підкладки
      * @return контейнер зі знайденими об'єктами
      */
-    vector<LeatherBackpack*> FindSuedeNoLiningBackpack();
+    vector<LeatherBackpack*> FindSuedeNoLiningBackpack() const;
 
     /**
      * Метод пошуку об'єкту
@@ -84,7 +84,7 @@ public:
      * Метод знаходить серед колекції рюкзак синього кольору з найбільшим об'ємом
      * @return контейнер зі знайденими об'єктами
      */
-    vector<Backpack*>  FindBlueMaxVolumeBackpack();
+    vector<Backpack*>  FindBlueMaxVolumeBackpack() const;
 };
 
 
