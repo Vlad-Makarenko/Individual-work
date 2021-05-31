@@ -3,7 +3,7 @@
 //
 
 /**
- * @file Backpack.h
+ * @file Backpack.cpp
  * @brief Файл з реалізацією методів базового класу
  *
  * @author Makarenko V.
