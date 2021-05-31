@@ -1,0 +1,8 @@
+L 1 Orange 38 1 Adidas Germany 0 2
+L 1 Red 44 1 Puma America 0 2
+L 1 Green 51 0 Deuter Germany 0 1
+L 0 Black 33 2 Gucci Italy 1 1
+F 0 Pink 24 0 Kanken British 1 1
+F 0 Yellow 43 0 A.M.G Ukraine 1 0
+F 0 Blue 39 2 Nike America 1 0
+F 1 Purple 55 1 Bagllet Ukraine 0 2
